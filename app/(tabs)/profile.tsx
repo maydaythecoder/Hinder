@@ -1,63 +1,84 @@
 import { Image } from 'expo-image'
-import { StyleSheet, View, Pressable } from 'react-native'
+import { StyleSheet, View, ScrollView } from 'react-native'
 import { ThemedText } from '@/components/themed-text'
 import { ThemedView } from '@/components/themed-view'
-import { IconSymbol } from '@/components/ui/icon-symbol'
 
-export default function TabTwoScreen() {
+export default function ProfileScreen() {
   return (
     <ThemedView style={styles.container}>
-      <View style={styles.card}>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Hero Image */}
         <Image
-          source={{ uri: 'https://picsum.photos/500/700' }}
-          style={styles.image}
+          source={{ uri: 'https://picsum.photos/600/900' }}
+          style={styles.hero}
           contentFit="cover"
         />
 
-        <View style={styles.info}>
+        {/* Main Info */}
+        <View style={styles.section}>
           <ThemedText type="title">Alex, 27</ThemedText>
-          <ThemedText type="default">
+          <ThemedText style={styles.bio}>
             Professional hater. Allergic to small talk. Swipe accordingly.
           </ThemedText>
         </View>
-      </View>
 
-      <View style={styles.actions}>
-        <Pressable style={[styles.button, styles.hate]}>
-          <IconSymbol name="xmark" size={32} color="#fff" />
-        </Pressable>
+        {/* About */}
+        <View style={styles.section}>
+          <ThemedText type="subtitle">About</ThemedText>
+          <ThemedText>
+            Runs on sarcasm. Hates bad coffee, loud chewers, and “we should hang out sometime.”
+          </ThemedText>
+        </View>
 
-        <Pressable style={[styles.button, styles.like]}>
-          <IconSymbol name="heart.fill" size={28} color="#fff" />
-        </Pressable>
-      </View>
+        {/* Interests */}
+        <View style={styles.section}>
+          <ThemedText type="subtitle">Interests</ThemedText>
+          <View style={styles.tags}>
+            {['Gym', 'Tech', 'Dark humor', 'Travel'].map(tag => (
+              <View key={tag} style={styles.tag}>
+                <ThemedText>{tag}</ThemedText>
+              </View>
+            ))}
+          </View>
+        </View>
+      </ScrollView>
+
     </ThemedView>
   )
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
-    justifyContent: 'center',
   },
-  card: {
-    borderRadius: 20,
-    overflow: 'hidden',
-    backgroundColor: '#000',
-    elevation: 5,
-  },
-  image: {
+  hero: {
     width: '100%',
     height: 420,
   },
-  info: {
+  section: {
     padding: 16,
-    gap: 6,
+    gap: 8,
+  },
+  bio: {
+    opacity: 0.8,
+  },
+  tags: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  tag: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    borderRadius: 20,
+    backgroundColor: '#F1F1F1',
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    marginTop: 24,
+    padding: 16,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderColor: '#333',
   },
   button: {
     width: 64,
