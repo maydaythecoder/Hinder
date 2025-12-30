@@ -5,6 +5,13 @@ import { ThemedView, ThemedText } from "@/components";
 import { Image } from "expo-image";
 import { Users } from "@/constants";
 
+/*
+TODO: Allow opening individual chats
+TODO: show message timestamps
+TODO: show unread message counts
+TODO: implement real messaging functionality
+TODO: add search functionality
+*/
 export default function Messages() {
   return (
     <ThemedView style={styles.container}>

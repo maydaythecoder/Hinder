@@ -4,6 +4,13 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { Users } from "@/constants";
 
+/*
+TODO: implement current user profile
+TODO: allow editing profile information
+TODO: allow adding/removing interests
+TODO: allow changing profile picture
+TODO: add settings and preferences
+*/
 export default function ProfileScreen() {
   return (
     <ThemedView style={styles.container}>

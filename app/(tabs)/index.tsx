@@ -5,6 +5,13 @@ import { ThemedView } from "@/components/themed-view";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { Users } from "@/constants";
 
+/*
+TODO: stack cards on top of each other
+TODO: display one card at a time
+TODO: add animations to like/hate buttons
+TODO: add swipe functionality to cards
+TODO: implement real matching functionality
+*/
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
