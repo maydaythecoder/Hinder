@@ -3,33 +3,7 @@ import { StyleSheet, View } from "react-native";
 import { Link } from "expo-router";
 import { ThemedView, ThemedText } from "@/components";
 import { Image } from "expo-image";
-
-type UserType = {
-  id: string;
-  name: string;
-  messages: string[];
-};
-
-const Users: UserType[] = [
-  {
-    id: "35b1f141-8f6e-4000-82d0-14534ceceecc",
-    name: "Mr-Worldwide",
-    messages: [
-      "Hello, how are you?",
-      "Don't forget our meeting tomorrow.",
-      "WHO HATES COFFEE!",
-    ],
-  },
-  {
-    id: "a2c4f141-1a2b-4000-82d0-14534ceab123",
-    name: "Jane Doe",
-    messages: [
-      "Can you send me the report?",
-      "Let's catch up over lunch.",
-      "sarcasm is honestly cringe",
-    ],
-  },
-];
+import { Users } from "@/constants";
 
 export default function Messages() {
   return (

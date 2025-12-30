@@ -1,50 +1,47 @@
-import { Image } from 'expo-image'
-import { StyleSheet, View, ScrollView } from 'react-native'
-import { ThemedText } from '@/components/themed-text'
-import { ThemedView } from '@/components/themed-view'
+import { Image } from "expo-image";
+import { StyleSheet, View, ScrollView } from "react-native";
+import { ThemedText } from "@/components/themed-text";
+import { ThemedView } from "@/components/themed-view";
+import { Users } from "@/constants";
 
 export default function ProfileScreen() {
   return (
     <ThemedView style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {/* Hero Image */}
-        <Image
-          source={{ uri: 'https://picsum.photos/600/900' }}
-          style={styles.hero}
-          contentFit="cover"
-        />
+        {Users.map((Users) => (
+          <View key={Users.id}>
+            <Image
+              source={Users.pfp}
+              style={styles.hero}
+              contentFit="cover"
+            />
 
-        {/* Main Info */}
-        <View style={styles.section}>
-          <ThemedText type="title">Alex, 27</ThemedText>
-          <ThemedText style={styles.bio}>
-            Professional hater. Allergic to small talk. Swipe accordingly.
-          </ThemedText>
-        </View>
-
-        {/* About */}
-        <View style={styles.section}>
-          <ThemedText type="subtitle">About</ThemedText>
-          <ThemedText>
-            Runs on sarcasm. Hates bad coffee, loud chewers, and “we should hang out sometime.”
-          </ThemedText>
-        </View>
-
-        {/* Interests */}
-        <View style={styles.section}>
-          <ThemedText type="subtitle">Interests</ThemedText>
-          <View style={styles.tags}>
-            {['Gym', 'Tech', 'Dark humor', 'Travel'].map(tag => (
-              <View key={tag} style={styles.tag}>
-                <ThemedText>{tag}</ThemedText>
+            <View style={styles.section}>
+              <ThemedText type="title">
+                {Users.name}, {Users.age}
+              </ThemedText>
+              <ThemedText style={styles.bio}>{Users.bio}</ThemedText>
+              <View style={styles.section}>
+                <ThemedText type="subtitle">About</ThemedText>
+                <ThemedText>{Users.about}</ThemedText>
               </View>
-            ))}
-          </View>
-        </View>
-      </ScrollView>
 
+              <View style={styles.section}>
+                <ThemedText type="subtitle">Interests</ThemedText>
+                <View style={styles.tags}>
+                  {Users.interests.map((tag) => (
+                    <View key={tag} style={styles.tag}>
+                      <ThemedText>{tag}</ThemedText>
+                    </View>
+                  ))}
+                </View>
+              </View>
+            </View>
+          </View>
+        ))}
+      </ScrollView>
     </ThemedView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -52,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   hero: {
-    width: '100%',
+    width: "100%",
     height: 420,
   },
   section: {
@@ -63,34 +60,34 @@ const styles = StyleSheet.create({
     opacity: 0.8,
   },
   tags: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: 8,
   },
   tag: {
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 20,
-    backgroundColor: '#F1F1F1',
+    backgroundColor: "#F1F1F1",
   },
   actions: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    flexDirection: "row",
+    justifyContent: "space-evenly",
     padding: 16,
     borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: '#333',
+    borderColor: "#333",
   },
   button: {
     width: 64,
     height: 64,
     borderRadius: 32,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   hate: {
-    backgroundColor: '#ff3b30',
+    backgroundColor: "#ff3b30",
   },
   like: {
-    backgroundColor: '#34c759',
+    backgroundColor: "#34c759",
   },
-})
+});
