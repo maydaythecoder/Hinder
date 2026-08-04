@@ -26,12 +26,12 @@ import { ThemedView } from '@/components/themed-view';
 export default function HomeScreen({ title, description, imageUrl }: { title: string; description: string; imageUrl?: string }) {
   return (
     <ThemedView style={styles.container}>
-      /*
+      {/*
       by default you land on the home page
       this will contain a modular component that will be used to navigate to other pages
       it will take a list of said pages
-      apon the selection of a bottom navbar it will navigate to the selected page
-      */
+      upon the selection of a bottom navbar it will navigate to the selected page
+      */}
       <TouchableOpacity style={styles.Card}>
         {imageUrl && <Image source={{ uri: imageUrl }} style={styles.image} />}
         <ThemedText style={styles.title}>{title}</ThemedText>
