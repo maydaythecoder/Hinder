@@ -16,12 +16,13 @@ a core feature is defined by the following:
   - a change that alters the ui/ux in a way that is fundamentally different from the prior state
   - an addition of a functionality that alters the reward/encouraged behavior of the user
 */
-import * as Device from 'expo-device';
-import { Platform, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StyleSheet } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import Cards from '@/components/Cards';
+import { cardData } from '@/Data/Cards';
+import { Key } from 'react';
+import { cardProps } from '@/Types/Card';
 
 export default function HomeScreen({ title, description, imageUrl }: { title: string; description: string; imageUrl?: string }) {
   return (
@@ -32,11 +33,9 @@ export default function HomeScreen({ title, description, imageUrl }: { title: st
       it will take a list of said pages
       upon the selection of a bottom navbar it will navigate to the selected page
       */}
-      <TouchableOpacity style={styles.Card}>
-        {imageUrl && <Image source={{ uri: imageUrl }} style={styles.image} />}
-        <ThemedText style={styles.title}>{title}</ThemedText>
-        <ThemedText style={styles.description}>{description}</ThemedText>
-      </TouchableOpacity>
+      {cardData.map((card: cardProps, index: number) => (
+        <Cards key={index} title={card.title} description={card.description} imageUrl={card.imageUrl} />
+      ))}
     </ThemedView>
   );
 }
@@ -46,29 +45,5 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
-  },
-  Card: {
-    width: 200,
-    height: 200,
-    backgroundColor: 'blue',
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 10,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: 'white',
-    marginTop: 10,
-  },
-  description: {
-    fontSize: 14,
-    color: 'white',
-    marginTop: 5,
   },
 });
