@@ -1,0 +1,20 @@
+version: '3'
+tasks:
+  up:
+    desc: Start the app in development mode
+    cmds:
+      - npm start
+  android:
+    desc: Start the app on Android
+    cmds:
+      - npm run android
+  build:
+    desc: Run a production build/export
+    cmds:
+      - npx expo export --output-dir dist
+  heal:
+    desc: Run TypeScript diagnostics and other dev tools
+    cmds:
+      - npx tsc --noEmit
+      - npm run lint
+      - npx expo doctor

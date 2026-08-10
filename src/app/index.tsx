@@ -21,10 +21,8 @@ import { StyleSheet } from 'react-native';
 import { ThemedView } from '@/components/themed-view';
 import Cards from '@/components/Cards';
 import { cardData } from '@/Data/Cards';
-import { Key } from 'react';
-import { cardProps } from '@/Types/Card';
 
-export default function HomeScreen({ title, description, imageUrl }: { title: string; description: string; imageUrl?: string }) {
+export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
       {/*
@@ -33,7 +31,7 @@ export default function HomeScreen({ title, description, imageUrl }: { title: st
       it will take a list of said pages
       upon the selection of a bottom navbar it will navigate to the selected page
       */}
-      {cardData.map((card: cardProps, index: number) => (
+      {cardData.map((card, index) => (
         <Cards key={index} title={card.title} description={card.description} imageUrl={card.imageUrl} />
       ))}
     </ThemedView>
