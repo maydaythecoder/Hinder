@@ -24,10 +24,17 @@ export default function AppTabs() {
         </TabIcon>
       </NativeTabs.Trigger>
 
-      <NativeTabs.Trigger name="explore">
-        <NativeTabs.Trigger.Label>Explore</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="chats">
+        <NativeTabs.Trigger.Label>Chats</NativeTabs.Trigger.Label>
         <TabIcon>
-          <Feather name="compass" size={20} color={colors.text} />
+          <Feather name="message-circle" size={20} color={colors.text} />
+        </TabIcon>
+      </NativeTabs.Trigger>
+
+      <NativeTabs.Trigger name="profile">
+        <NativeTabs.Trigger.Label>Profile</NativeTabs.Trigger.Label>
+        <TabIcon>
+          <Feather name="user" size={20} color={colors.text} />
         </TabIcon>
       </NativeTabs.Trigger>
     </NativeTabs>
