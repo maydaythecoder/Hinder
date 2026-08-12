@@ -1,14 +1,58 @@
-import { cardProps } from "@/Types/Card";
+import { profileData } from "@/Types/Profile";
 
-export const cardData: cardProps[] = [
+export const cardData: profileData[] = [
   {
-    title: 'Card Title',
-    description: 'This is a description of the card.',
-    imageUrl: 'https://example.com/image.jpg',
+    id: 'amina',
+    name: 'Amina',
+    age: 24,
+    bio: 'Weekend hiker and full time latte enthusiast. Looking for someone to split fries with.',
+    distanceKm: 3,
+    interests: ['Hiking', 'Coffee', 'Photography'],
+    imageUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
   },
   {
-    title: 'Another Card Title',
-    description: 'This is another description of the card.',
-    imageUrl: 'https://example.com/another-image.jpg',
-  }
+    id: 'liam',
+    name: 'Liam',
+    age: 27,
+    bio: 'Software dev by day, amateur chef by night. My pasta is better than my code.',
+    distanceKm: 7,
+    interests: ['Cooking', 'Cycling', 'Movies'],
+    imageUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+  },
+  {
+    id: 'sofia',
+    name: 'Sofia',
+    age: 25,
+    bio: 'Bookshop hopper and playlist maker. Ask me about my top five albums of all time.',
+    distanceKm: 2,
+    interests: ['Music', 'Reading', 'Travel'],
+    imageUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+  },
+  {
+    id: 'noah',
+    name: 'Noah',
+    age: 26,
+    bio: 'Gym in the morning, board games at night. Fluent in sarcasm and settlers of catan.',
+    distanceKm: 11,
+    interests: ['Fitness', 'Board games', 'Dogs'],
+    imageUrl: 'https://randomuser.me/api/portraits/men/85.jpg',
+  },
+  {
+    id: 'maya',
+    name: 'Maya',
+    age: 23,
+    bio: 'Art student who paints more walls than canvases. Show me your favorite mural.',
+    distanceKm: 5,
+    interests: ['Art', 'Skating', 'Thrifting'],
+    imageUrl: 'https://randomuser.me/api/portraits/women/21.jpg',
+  },
+  {
+    id: 'yusuf',
+    name: 'Yusuf',
+    age: 28,
+    bio: 'Pickup football on saturdays, documentaries on sundays. Halal food critic in between.',
+    distanceKm: 9,
+    interests: ['Football', 'Food', 'History'],
+    imageUrl: 'https://randomuser.me/api/portraits/men/51.jpg',
+  },
 ];
