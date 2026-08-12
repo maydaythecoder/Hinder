@@ -17,23 +17,32 @@ a core feature is defined by the following:
   - an addition of a functionality that alters the reward/encouraged behavior of the user
 */
 import { StyleSheet } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { ThemedView } from '@/components/themed-view';
-import Cards from '@/components/Cards';
+import SwipeDeck from '@/components/SwipeDeck';
+import { BottomTabInset, Spacing } from '@/constants/theme';
 import { cardData } from '@/Data/Cards';
 
 export default function HomeScreen() {
+  const insets = useSafeAreaInsets();
+
   return (
-    <ThemedView style={styles.container}>
+    <ThemedView
+      style={[
+        styles.container,
+        {
+          paddingTop: insets.top + Spacing.three,
+          paddingBottom: insets.bottom + BottomTabInset,
+        },
+      ]}>
       {/*
       by default you land on the home page
       this will contain a modular component that will be used to navigate to other pages
       it will take a list of said pages
       upon the selection of a bottom navbar it will navigate to the selected page
       */}
-      {cardData.map((card, index) => (
-        <Cards key={index} title={card.title} description={card.description} imageUrl={card.imageUrl} />
-      ))}
+      <SwipeDeck profiles={cardData} />
     </ThemedView>
   );
 }
@@ -41,7 +50,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
